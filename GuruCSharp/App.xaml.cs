@@ -13,5 +13,6 @@ namespace GuruCSharp
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }
