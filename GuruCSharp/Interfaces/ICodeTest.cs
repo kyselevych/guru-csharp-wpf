@@ -2,7 +2,7 @@
 
 namespace GuruCSharp.Interfaces;
 
-public interface ICodeTest
+public interface ICodeTest : IQuestion, IOrderly
 {
     public string Text { get; set; }
 

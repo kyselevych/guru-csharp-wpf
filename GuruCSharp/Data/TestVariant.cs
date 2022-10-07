@@ -2,7 +2,7 @@
 
 namespace GuruCSharp.Data;
 
-public class TestVariant : ITestVariant
+public class TestVariant
 {
     public string Text { get; set; } = string.Empty;
 

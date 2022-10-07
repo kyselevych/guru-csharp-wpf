@@ -3,7 +3,7 @@ using GuruCSharp.Interfaces;
 
 namespace GuruCSharp.Data;
 
-public class CodeTest: ICodeTest, IOrderly
+public class CodeTest: IQuestion, IOrderly
 {
     public string Text { get; set; } = string.Empty;
     

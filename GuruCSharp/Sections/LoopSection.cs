@@ -45,6 +45,6 @@ public class LoopSection : Section
 
         CodeTests = new List<CodeTest>();
 
-        InitOrderList();
+        InitializeSection();
     }
 }

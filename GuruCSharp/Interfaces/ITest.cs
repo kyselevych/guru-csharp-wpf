@@ -3,7 +3,7 @@ using GuruCSharp.Data;
 
 namespace GuruCSharp.Interfaces;
 
-public interface ITest
+public interface ITest : IQuestion, IOrderly
 {
     public string Text { get; set; }
     

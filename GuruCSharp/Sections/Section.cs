@@ -10,21 +10,25 @@ public abstract class Section : IEnumerable<object>
 {
     public SortedList<int, object> OrderList { get; protected set; } = new();
 
-    public List<Test> Tests { get; protected set; }
+    public int CurrentPoints { get; set; } = 0;
+    
+    public int MaxPoints { get; set; }
 
-    public List<Theory> Theory { get; protected set; }
+    protected List<Test> Tests { get; init; }
 
-    public List<CodeTest> CodeTests { get; protected set; }
+    protected List<Theory> Theory { get; init; }
+
+    protected List<CodeTest> CodeTests { get; init; }
 
 
-    protected void InitOrderList()
+    protected void InitializeSection()
     {
-        PutEachElementToOrderList(Tests);
-        PutEachElementToOrderList(Theory);
-        PutEachElementToOrderList(CodeTests);
+        AddCollectionToSection(Tests);
+        AddCollectionToSection(Theory);
+        AddCollectionToSection(CodeTests);
     }
 
-    private void PutEachElementToOrderList<T>(List<T> collection) where T : IOrderly
+    private void AddCollectionToSection<T>(List<T> collection) where T : IOrderly
     {
         foreach (var element in collection)
         {
@@ -32,11 +36,17 @@ public abstract class Section : IEnumerable<object>
             {
                 throw new ArgumentException("It order number already exists in order list");
             }
+
+            if (element is IQuestion)
+            {
+                MaxPoints += 1;
+            }
             
             OrderList.Add(element.Order, element);
         }
     }
 
+ 
 
     public IEnumerator<object> GetEnumerator()
     {
