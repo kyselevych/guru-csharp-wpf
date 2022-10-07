@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-
+using GuruCSharp.Pages;
 using GuruCSharp.Sections;
 
 namespace GuruCSharp
@@ -12,7 +12,12 @@ namespace GuruCSharp
         public MainWindow()
         {
             InitializeComponent();
-            var s = new LoopSection();
+            Main.Content = new MainPage();
+        }
+
+        public void SetPage(object content)
+        {
+            Main.Content = content;
         }
     }
 }

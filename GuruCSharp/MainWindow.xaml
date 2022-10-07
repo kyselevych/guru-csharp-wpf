@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuruCSharp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="950">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
         
+        <StackPanel Orientation="Horizontal" Background="Blue" Grid.Row="0">
+            <TextBlock FontSize="18" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" Margin="30 0 0 0">
+                Guru CSharp
+            </TextBlock>
+        </StackPanel>
+        <Frame x:Name="Main" Grid.Row="1" VerticalAlignment="Top" Padding="30" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
