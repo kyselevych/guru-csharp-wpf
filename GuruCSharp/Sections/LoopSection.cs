@@ -30,7 +30,7 @@ public class LoopSection : Section
             new()
             {
                 Order = 3,
-                Text = "It's a text"
+                Text = "It's a text 2"
             },
         };
 

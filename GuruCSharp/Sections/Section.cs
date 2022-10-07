@@ -1,14 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using GuruCSharp.Data;
 using GuruCSharp.Interfaces;
 
 namespace GuruCSharp.Sections;
 
-public abstract class Section
+public abstract class Section : IEnumerable<object>
 {
-    public int Progress { get; protected set; }
-
     public SortedList<int, object> OrderList { get; protected set; } = new();
 
     public List<Test> Tests { get; protected set; }
@@ -16,7 +15,8 @@ public abstract class Section
     public List<Theory> Theory { get; protected set; }
 
     public List<CodeTest> CodeTests { get; protected set; }
-    
+
+
     protected void InitOrderList()
     {
         PutEachElementToOrderList(Tests);
@@ -35,5 +35,19 @@ public abstract class Section
             
             OrderList.Add(element.Order, element);
         }
+    }
+
+
+    public IEnumerator<object> GetEnumerator()
+    {
+        foreach (var element in OrderList)
+        {
+            yield return element;
+        }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }

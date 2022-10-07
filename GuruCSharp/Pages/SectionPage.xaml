@@ -15,8 +15,10 @@
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-
+        <TextBlock x:Name="TextBlock">
+            
+        </TextBlock>
         <ProgressBar Minimum="0" Maximum="100" Height="12" Value="35" Margin="0 0 50 0" Grid.Row="1" Grid.Column="0"/>
-        <Button Grid.Row="1" Grid.Column="1" Height="30">Next</Button>
+        <Button Grid.Row="1" Grid.Column="1" Height="30" Click="ButtonNext_OnClick">Next</Button>
     </Grid>
 </Page>
